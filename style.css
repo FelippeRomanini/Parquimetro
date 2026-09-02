@@ -2,114 +2,189 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background-color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 70px;
+    color: white;
 }
 
 .container {
+    width: 100%;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 400px;
-    padding: 35px;
-    gap: 20px;
-
-    border-radius: 15px;
-    border: 1px solid #f7e655;
-
-    background-color: #f7e655;
-
-    box-shadow:
-        0 0 10px rgba(248, 252, 4, 0.5),
-        0 0 30px rgba(248, 252, 4, 0.35);
 }
 
-.container h1 {
+.parquimetro {
+    width: 345px;
+    min-height: 235px;
+    background-color: #ffeb55;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255, 235, 85, 0.6);
+}
+
+.parquimetro h1 {
     color: #111;
-    font-size: 32px;
-    text-transform: uppercase;
+    font-size: 28px;
     letter-spacing: 2px;
+    margin-bottom: 30px;
 }
 
 #valorInserido {
     width: 100%;
-    padding: 15px;
-
+    background: transparent;
     border: none;
     border-bottom: 2px solid #111;
     outline: none;
-
-    background-color: transparent;
     color: #111;
-
-    font-size: 20px;
     text-align: center;
-
-    transition: 0.3s ease;
-}
-
-/* Remove as setinhas do input number */
-#valorInserido::-webkit-inner-spin-button,
-#valorInserido::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-#valorInserido {
-    appearance: textfield;
+    font-size: 16px;
+    padding: 8px;
+    margin-bottom: 18px;
 }
 
 #valorInserido::placeholder {
     color: #555;
 }
 
-#valorInserido:focus {
-    border-bottom-color: #555;
-}
-
-button {
+.parquimetro button {
     width: 100%;
-    padding: 14px;
-
-    border: none;
-    border-radius: 8px;
-
+    height: 42px;
     background-color: #111;
-    color: #f7e655;
-
-    font-size: 17px;
+    color: #ffeb00;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
     font-weight: bold;
-
     cursor: pointer;
-    transition: 0.2s ease;
 }
 
-button:hover {
-    background-color: #222;
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: translateY(0);
+.parquimetro button:hover {
+    box-shadow: 0 0 12px rgba(255, 235, 85, 0.7);
 }
 
 #resultado {
-    width: 100%;
-    min-height: 0;
-    padding: 0;
-
     color: #111;
-    text-align: center;
-    font-size: 16px;
     font-weight: bold;
-    line-height: 1.5;
+    margin-top: 15px;
+}
 
-    transition: 0.3s ease;
+.precos {
+    width: 100%;
+    margin-top: 65px;
+}
+
+.precos h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    color: #ffeb00;
+    font-size: 24px;
+    margin-bottom: 35px;
+}
+
+.precos h2::before,
+.precos h2::after {
+    content: "";
+    width: 105px;
+    height: 3px;
+    background-color: #ffeb00;
+    box-shadow: 0 0 8px rgba(255, 235, 0, 0.8);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    width: 225px;
+    height: 230px;
+    border: 2px solid #ffeb00;
+    border-radius: 12px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 12px rgba(255, 235, 0, 0.4);
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255, 235, 0, 0.7);
+}
+
+.icone {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #ffeb00;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 22px;
+}
+
+.card strong {
+    color: white;
+    font-size: 27px;
+    margin-bottom: 18px;
+}
+
+.card span {
+    color: #ffeb00;
+    font-size: 18px;
+}
+
+@media (max-width: 800px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        padding-top: 35px;
+    }
+
+    .parquimetro {
+        width: 90%;
+        max-width: 345px;
+    }
+
+    .precos {
+        margin-top: 45px;
+    }
+
+    .precos h2 {
+        font-size: 20px;
+    }
+
+    .precos h2::before,
+    .precos h2::after {
+        display: none;
+    }
+}
+
+#valorInserido::-webkit-inner-spin-button,
+#valorInserido::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

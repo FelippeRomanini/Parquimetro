@@ -7,12 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div class="container">
-        <h1>Parquímetro</h1>
-        <input type="number" id="valorInserido" placeholder="Insira o valor" inputmode="decimal">
-        <button onclick="calcular()">Calcular</button>
-        <p id="resultado"></p>
+        <div class="parquimetro">
+            <h1>PARQUÍMETRO</h1>
+            <input type="number" id="valorInserido" placeholder="Insira o valor" inputmode="decimal">
+            <button onclick="calcular()">Calcular</button>
+            <p id="resultado"></p>
+        </div>
+
+        <div class="precos">
+            <h2>TABELA DE PREÇOS</h2>
+            <div class="cards">
+
+                <div class="card">
+                    <div class="icone">◷</div>
+                    <strong>R$ 1,00</strong>
+                    <span>30 minutos</span>
+                </div>
+
+                <div class="card">
+                    <div class="icone">◷</div>
+                    <strong>R$ 1,75</strong>
+                    <span>60 minutos</span>
+                </div>
+
+                <div class="card">
+                    <div class="icone">◷</div>
+                    <strong>R$ 3,00</strong>
+                    <span>120 minutos</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
