@@ -10,7 +10,7 @@ class Parquimetro {
             return 30;
         } else if (this.valor >= 1.75 && this.valor < 3.00) {
             return 60;
-        } else if (this.valor === 3.00) {
+        } else if (this.valor >= 3.00) {
             return 120;
         } else {
             return 0;
@@ -45,21 +45,23 @@ const calcular = () => {
 
     const valorInserido = Number.parseFloat(document.getElementById('valorInserido').value);
 
+    const resultado = document.getElementById('resultado');
+
+    if (isNaN(valorInserido)) {
+        resultado.textContent = "Valor inválido. Certifique-se de que o valor inserido é um número.";
+        return;
+    } else if (valorInserido < 1.00) {
+        resultado.textContent = 'Valor insuficiente.';
+        return;
+    }
+
     const parquimetro = new Parquimetro(valorInserido);
 
     const tempo = parquimetro.calcularTempo();
 
-    const troco = parquimetro.calcularTroco();
+    const troco = parquimetro.calcularTroco(); 
 
-    const resultado = document.getElementById('resultado');
-    if (valorInserido < 1.00) {
-        resultado.textContent = 'Valor insuficiente.';
-        return;
-    } else if (valorInserido > 3.00) {
-        resultado.textContent = 'Valor excede o máximo permitido.';
-        return;
-    }
-    resultado.textContent = `Tempo de estacionamento: ${tempo} minutos. Troco: R$ ${troco.toFixed(2)}`;
+    resultado.textContent = `Estacionamento: ${tempo} minutos. \n Troco: R$ ${troco.toFixed(2)}`;
 
     const valorInseridoElement = document.getElementById('valorInserido');
     valorInseridoElement.value = '';
